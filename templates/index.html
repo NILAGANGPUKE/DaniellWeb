@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Daniell's Portfolio Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth; 
+        }
+        body {
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 9.5px );
+            -webkit-backdrop-filter: blur( 9.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        .logo {
+            font-size: 3rem;
+            color: black;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 4rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        nav a:hover, nav a.active {
+            color: #b74b4b;
+            border-bottom: 3px solid #b74b4b;
+        }
+
+        .header-img {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #b74b4b;
+            margin-left: 3rem;
+            transition: transform 0.3s ease;
+        }
+        .header-img:hover {
+            transform: scale(1.1);
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #b74b4b;
+            text-transform: uppercase;
+        }
+
+        #home {
+            background: linear-gradient(to right, #b74b4b, black);
+            color: white;
+            padding: 10rem 9%;
+            text-align: left;
+        }
+        #home h1 {
+            font-size: 6rem;
+            color: white;
+        }
+        #home p {
+            font-size: 2rem;
+            color: #e0e0e0;
+        }
+
+        .home-content span {
+            color: #b74b4b;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: transparent;
+            border: 0.2rem solid #b74b4b;
+            font-size: 2rem;
+            border-radius: 50%;
+            margin: 3rem 1.5rem 0 0;
+            transition: 0.3s ease;
+            color: #b74b4b;
+        }
+        .social-icons a:hover {
+            color: black;
+            background-color: #b74b4b;
+            transform: scale(1.3) translateY(-5px);
+            box-shadow: 0 0 25px #b74b4b;
+        }
+
+        #projects {
+            background-color: #161616;
+            color: white;
+            padding: 10rem 9%;
+        }
+        .project-card {
+            background-color: #202020;
+            border: 2px solid #b74b4b;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #b74b4b;
+        }
+        .project-card h3 {
+            font-size: 2.5rem;
+            color: #b74b4b;
+        }
+        .project-card p {
+            font-size: 1.6rem;
+            color: white;
+        }
+        .project-card img {
+            width: 100%;
+            border-radius: 1rem;
+            margin-top: 1rem;
+        }
+
+        #about {
+            background: linear-gradient(to right, black, #b74b4b);
+            color: white;
+            padding: 10rem 9%;
+            text-align: center;
+        }
+        #about h2 {
+            font-size: 4rem;
+            color: #b74b4b;
+        }
+        #about p {
+            font-size: 2rem;
+            color: #e0e0e0;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        #contact {
+            background-color: #161616;
+            color: white;
+            padding: 10rem 9%;
+            text-align: center;
+        }
+        #contact .contact {
+            font-size: 2rem;
+            margin: 1rem 0;
+            color: #e0e0e0;
+        }
+        #contact a {
+            color: #b74b4b;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        #contact a:hover {
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #b74b4b;
+            background-color: black;
+            border: 2px solid #b74b4b;
+            border-radius: 4rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .btn:hover {
+            color: black;
+            background-color: #b74b4b;
+            box-shadow: 0 0 25px #b74b4b;
+        }
+
+        @media (max-width: 995px) {
+            nav a {
+                display: block;
+                font-size: 2rem;
+                margin: 2rem 0;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 40%;
+                padding: 1rem;
+                background-color: #161616;
+                border-left: 3px solid #b74b4b;
+                border-bottom: 3px solid #b74b4b;
+                border-bottom-left-radius: 2rem;
+            }
+            nav.active {
+                display: block;
+            }
+            #home {
+                flex-direction: column;
+                margin: 5rem 4rem;
+            }
+            .home-img img {
+                width: 70vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#home" class="logo">Daniell</a>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <img src="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-6/431870353_492537376439315_2580999042669428798_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFQ88iTLVgqUwJ0ShgqkY21c31VWa395wdzfVVZrf3nByTjExC79KUa8al8RvaQo8GXz67_sZGmtsYBhOn6B7Pa&_nc_ohc=6gofVaTKXjcQ7kNvgE1C0Of&_nc_zt=23&_nc_ht=scontent.fcrk1-3.fna&_nc_gid=AxSqRGGDiucu9awit7QwPxy&oh=00_AYDy3X6nfQBm3sYEQgtzx2EwxPQjEEENVQwUp5HB3zL1eA&oe=6758DCBC" alt="Profile Image" class="header-img">
+    </header>
+
+    <section id="home">
+        <div class="home-content">
+            <h1>Hi, It's <span>Daniell David P. Nava</span></h1>
+            <p>Hello! I'm an I.T. student at STI Sta. Maria tasked to create a Website Portfolio.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div onclick="openDialog('POS-System')" class="project-card">
+            <h3>Project 1: POS System</h3>
+            <p>The place where retail transactions are made.</p>
+            <img src="https://webix.com/assets/templates/POS_terminal/POS@2x.png" alt="POS System">
+            <dialog class="dialog" id="POS-System">
+                <img src="https://webix.com/assets/templates/POS_terminal/POS@2x.png">
+            </dialog>
+        </div>
+        <div onclick="openDialog('Website Portfolio Profile')" class="project-card">
+            <h3>Project 2: Website Portfolio Profile</h3>
+            <p>A personal portfolio showcasing my skills and projects.</p>
+            <img src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.15752-9/462567381_922993893117254_1013583349338334921_n.png?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE6agyvasMCpZNn74Hs37U39zPX85rHN_P3M9fzmsc386cmtWtrzBV3JdO5GB868NuNqhBBmLAiXZPJ2F-xwLdZ&_nc_ohc=TKFahTYXwZUQ7kNvgHMXXka&_nc_zt=23&_nc_ht=scontent.fcrk1-4.fna&oh=03_Q7cD1QGlz5Mw52NiVZasvmXeyeOsWm55_LkdcVaveywjFWubGw&oe=677A7A42" alt="Website Portfolio Profile">
+            <dialog class="dialog" id="Website Portfolio Profile">
+                <img src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t1.15752-9/462567381_922993893117254_1013583349338334921_n.png?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE6agyvasMCpZNn74Hs37U39zPX85rHN_P3M9fzmsc386cmtWtrzBV3JdO5GB868NuNqhBBmLAiXZPJ2F-xwLdZ&_nc_ohc=TKFahTYXwZUQ7kNvgHMXXka&_nc_zt=23&_nc_ht=scontent.fcrk1-4.fna&oh=03_Q7cD1QGlz5Mw52NiVZasvmXeyeOsWm55_LkdcVaveywjFWubGw&oe=677A7A42">
+            </dialog>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>Hello, my name is Daniell. I am an Information Technology student studying at STI Sta. Maria.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <h2 class="section-title">Contacts</h2>
+            <p class="contact">You can email me at <a href="https://mail.google.com/mail/u/0/#inbox">apaysapul@gmail.com</a></p>
+            <p class="contact">You can call me at  <a href="tel:+639123456789">09123456789</a></p>
+            <p class="contact">You can follow me on <a href="https://www.facebook.com/" target="_blank">Facebook</a></p>
+    </section>
+</body>
+</html>
